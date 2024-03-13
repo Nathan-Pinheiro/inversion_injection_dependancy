@@ -12,6 +12,9 @@ import src.movementTypes.Track;
 import src.movementTypes.TwoLegMovement;
 import src.movementTypes.Wheels;
 import src.weapons.Blade;
+import src.weapons.Grenade;
+import src.weapons.LaserGun;
+import src.weapons.RocketLauncher;
 import src.Bot;
 
 public class Main {
@@ -27,6 +30,8 @@ public class Main {
 		Weapon weapon;
 		MovementType movementType;
 
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 		System.out.println("Welcome in the bot workshop");
 		System.out.println("Here you can personalize your bot");
 		System.out.println("Do you want to continue ? (type y to continue)");
@@ -35,6 +40,8 @@ public class Main {
 
 		do
 		{
+			System.out.print("\033[H\033[2J");
+			System.out.flush();
 			System.out.println("Start by choosing the movement type :");
 			System.out.println("1 - Weels");
 			System.out.println("2 - Track");
@@ -43,7 +50,7 @@ public class Main {
 			choice = scanner.nextInt();
 		}
 		while (choice < 0 || choice > 4);
-		
+
 		switch (choice) {
 			case 1 :
 				movementType = new Wheels();
@@ -64,6 +71,8 @@ public class Main {
 
 		do
 		{
+			System.out.print("\033[H\033[2J");
+			System.out.flush();
 			System.out.println("Now, choose the fuel :");
 			System.out.println("1 - Electricity");
 			System.out.println("2 - Gazoline");
@@ -89,6 +98,8 @@ public class Main {
 
 		do
 		{
+			System.out.print("\033[H\033[2J");
+			System.out.flush();
 			System.out.println("To finish, choose the weapons :");
 			System.out.println("1 - Laser gun");
 			System.out.println("2 - Rocket launcher");
@@ -100,16 +111,16 @@ public class Main {
 
 		switch (choice) {
 			case 1 :
-				weapon = new Blade();
+				weapon = new LaserGun();
 				break;
 			case 2 :
-				weapon = new Blade();
+				weapon = new RocketLauncher();
 				break;
 			case 3 :
 				weapon = new Blade();
 				break;
 			case 4 :
-				weapon = new Blade();
+				weapon = new Grenade();
 				break;
 			default :
 				scanner.close();
@@ -119,6 +130,9 @@ public class Main {
 		scanner.close();
 
 		Bot bot = new Bot(fuel, weapon, movementType);
+
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 		System.out.println(bot.getDescription());
 	}
 
